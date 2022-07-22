@@ -11,11 +11,11 @@ diagnostics.get('/', (req, res) => {
 
 // POST Route for a error logging
 diagnostics.post('/', (req, res) => {
-  const { time, error_id, errors} = req.body
+  const {errors} = req.body
   const newEror = {
-    time,
-    error_id,
-    errors,
+    time: new Date().now(),
+    error_id: uuidv4(),
+    errors: errors,
   }
   const currentErrs = JSON.stringify(newEror, null, '\t')
   fs.readFile('../db/diagnostics.json', (err, res) => {

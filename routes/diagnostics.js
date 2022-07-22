@@ -6,6 +6,7 @@ const errors = require('../db/diagnostics.json')
 // GET Route for retrieving diagnostic information
 diagnostics.get('/', (req, res) => {
   // TODO: Logic for sending all the content of db/diagnostics.json
+  res.json(errors);
 });
 
 // POST Route for a error logging
